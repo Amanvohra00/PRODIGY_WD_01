@@ -2,7 +2,7 @@
 :root {
   --primary-color: #2b2d42;   /* Dark slate */
   --accent-color: #8d99ae;    /* Soft gray */
-  --highlight-color: #ef233c; /* Bright red */
+  --highlight-color: #130003; /* Bright red */
   --background-light: #edf2f4; /* Light grayish background */
   --background-dark: #3a3a40; /* Darker background */
   --text-light: #ffffff;      /* Light text */
@@ -48,7 +48,7 @@ nav ul li a:hover {
 
 /* Change navbar background on scroll */
 .scrolled {
-  background-color: var(--text-dark);
+  background-color:#f5001d;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -66,8 +66,8 @@ section {
 
 /* Specific Section Background Colors */
 #home {
-  background-color: var(--background-light); /* Light Background */
-  color: var(--text-dark); /* Darker Text for contrast */
+  background-color:#f5001d; /* Light Background */
+  color: white; /* Darker Text for contrast */
 }
 
 #reviews {
@@ -75,7 +75,7 @@ section {
 }
 
 #news {
-  background-color: var(--primary-color); /* Dark Slate Background */
+  background-color:#2b2d42; /* Dark Slate Background */
 }
 
 #about {
@@ -99,3 +99,156 @@ section {
 html {
   scroll-behavior: smooth;
 }
+
+ /* Reviews Section */
+#reviews {
+  position: relative;
+  padding: 60px 0;
+  background-color: #090707;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Title and Description Styling */
+#reviews h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+#reviews p {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  max-width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px; /* Smooth rounded corners for container */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect on slider container */
+.slider-container:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+}
+
+/* Each Slide */
+.slide {
+  flex: 0 0 33.33%; /* Each slide takes up 33.33% of the container */
+  margin-right: 10px; /* No extra margin between slides */
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 12px; /* Rounded corners for each slide */
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%; /* Ensure equal height for all images */
+  object-fit: cover; /* Ensures image fits perfectly inside slide */
+  border-radius: 12px; /* Rounded corners for images */
+}
+
+/* Slide Content */
+.slide-content {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+  color: white;
+  padding: 15px;
+  border-radius: 12px; /* Rounded corners for the content box */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.4s ease; /* Smooth transition for content appearance */
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Show content on hover */
+.slide:hover .slide-content {
+  opacity: 1; /* Show content when hovering over the slide */
+}
+
+/* Navigation Buttons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev:focus, .next:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 90%;
+  }
+
+  .slide {
+    flex: 0 0 80%; /* Increase slide width on smaller screens */
+    margin-right: 20px; /* More space between slides */
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container {
+    max-width: 95%;
+  }
+
+  .slide {
+    flex: 0 0 100%; /* Full-width slides on mobile */
+  }
+
+  .prev, .next {
+    font-size: 18px; /* Smaller buttons on mobile */
+    padding: 8px;
+  }
+}
+
